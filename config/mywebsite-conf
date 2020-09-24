@@ -10,7 +10,7 @@ server{
 	listen [::]:443 ssl ;
 	server_name mywebsite;
 	
-	ssl_certificate /etc/ssl/certs/mywebsite.pem;
+	ssl_certificate /etc/ssl/certs/mywebsite.crt;
 	ssl_certificate_key /etc/ssl/private/mywebsite.key;
 
     ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
