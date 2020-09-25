@@ -13,9 +13,11 @@ server{
 	ssl_certificate /etc/ssl/certs/mywebsite.crt;
 	ssl_certificate_key /etc/ssl/private/mywebsite.key;
 
-    ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
-
     root /var/www/html;
 
 	index index.html index.nginx-debian.html;
+	
+	location /  {
+		try_files $uri $uri/ =404;
+	}
 }
