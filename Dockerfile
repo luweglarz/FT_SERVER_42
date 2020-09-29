@@ -6,7 +6,7 @@
 #    By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/23 13:43:47 by lweglarz          #+#    #+#              #
-#    Updated: 2020/09/29 15:41:43 by lweglarz         ###   ########.fr        #
+#    Updated: 2020/09/29 16:26:41 by lweglarz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,8 @@ RUN apt-get install -y openssl \
 &&      openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -subj '/CN=mywebsite' \ 
         -keyout /etc/ssl/private/mywebsite.key -out /etc/ssl/certs/mywebsite.crt
-
-COPY srcs/index.html var/www/html
-
-RUN apt-get -y install mariadb-server mariadb-client
+#test
+COPY srcs/index.html var/www/html/mywebsitecontent
 
 #Installation de php et ses differents module
 RUN apt-get -y install php7.3 \   
@@ -36,6 +34,8 @@ RUN apt-get -y install php7.3 \
                 php-mbstring \
                 php-json 
 
+
+RUN apt-get -y install mariadb-server
 RUN mkdir /var/www/mywebsitecontent
 
 #Installation de Wordpress
@@ -43,6 +43,7 @@ RUN wget https://wordpress.org/latest.tar.gz \
 &&  tar xf latest.tar.gz \
 &&  mv wordpress/ /var/www/mywebsitecontent/ \
 &&  rm latest.tar.gz 
+COPY srcs/wp-config.php var/www/mywebsitecontent/wordpress
 
 #Installation de phpmyadmin
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz \
@@ -50,7 +51,6 @@ RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-
 &&  mv phpMyAdmin-4.9.0.1-all-languages /var/www/mywebsitecontent/phpMyAdmin \
 &&  rm phpMyAdmin-4.9.0.1-all-languages.tar.gz 
 COPY srcs/config.inc.php var/www/mywebsitecontent/phpMyAdmin
-COPY srcs/wp-config.php var/www/mywebsite/wordpress
 
 COPY srcs/mysqlsetup.sh ./
 RUN bash mysqlsetup.sh
