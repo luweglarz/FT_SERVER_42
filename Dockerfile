@@ -6,7 +6,7 @@
 #    By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/23 13:43:47 by lweglarz          #+#    #+#              #
-#    Updated: 2020/09/29 12:59:57 by lweglarz         ###   ########.fr        #
+#    Updated: 2020/09/29 13:00:42 by lweglarz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,5 +48,6 @@ RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-
 &&  tar -xf phpMyAdmin-4.9.0.1-all-languages.tar.gz \
 &&  mv phpMyAdmin-4.9.0.1-all-languages /var/www/mywebsitecontent/ \
 &&  rm phpMyAdmin-4.9.0.1-all-languages.tar.gz 
+
 COPY srcs/setup.sh ./ 
 CMD bash setup.sh
