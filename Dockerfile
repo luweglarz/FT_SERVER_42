@@ -6,7 +6,7 @@
 #    By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/23 13:43:47 by lweglarz          #+#    #+#              #
-#    Updated: 2020/09/29 13:00:42 by lweglarz         ###   ########.fr        #
+#    Updated: 2020/09/29 14:32:14 by lweglarz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ RUN apt-get -y install php7.3 \
                 php7.3-mysql \
                 php-mbstring \
                 php-json 
+
 RUN mkdir /var/www/mywebsitecontent
 
 #Installation de Wordpress
@@ -46,8 +47,9 @@ RUN wget https://wordpress.org/latest.tar.gz \
 #Installation de phpmyadmin
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz \
 &&  tar -xf phpMyAdmin-4.9.0.1-all-languages.tar.gz \
-&&  mv phpMyAdmin-4.9.0.1-all-languages /var/www/mywebsitecontent/ \
+&&  mv phpMyAdmin-4.9.0.1-all-languages /var/www/mywebsitecontent/phpMyAdmin \
 &&  rm phpMyAdmin-4.9.0.1-all-languages.tar.gz 
+COPY srcs/config.inc.php var/www/mywebsitecontent/phpMyAdmin 
 
 COPY srcs/setup.sh ./ 
 CMD bash setup.sh
