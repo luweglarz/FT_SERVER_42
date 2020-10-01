@@ -10,15 +10,15 @@ server{
 	listen [::]:443 ssl ;
 	server_name localhost;
 	
-	ssl_certificate /etc/ssl/certs/mywebsite.crt;
-	ssl_certificate_key /etc/ssl/private/mywebsite.key;
+	ssl_certificate /etc/ssl/certs/mywebserv.crt;
+	ssl_certificate_key /etc/ssl/private/mywebserv.key;
 
-    root /var/www/mywebsitecontent;
+    root /var/www/mywebservcontent;
 
 	index index.html index.nginx-debian.html index.php;
 	
 	location / {
-    	autoindex on;
+    	autoindex off;
 	}
 
 	location ~ \.php$ {
