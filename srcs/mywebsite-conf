@@ -15,7 +15,7 @@ server{
 
     root /var/www/mywebsitecontent;
 
-	index index.html index.htm index.nginx-debian.html index.php;
+	index index.html index.nginx-debian.html index.php;
 
 	location ~ \.php$ {
 		include snippets/fastcgi-php.conf;

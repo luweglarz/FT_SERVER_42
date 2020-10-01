@@ -6,7 +6,7 @@
 #    By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/23 13:43:47 by lweglarz          #+#    #+#              #
-#    Updated: 2020/09/29 16:26:41 by lweglarz         ###   ########.fr        #
+#    Updated: 2020/10/01 11:49:32 by lweglarz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ RUN apt-get install -y openssl \
 &&      openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -subj '/CN=mywebsite' \ 
         -keyout /etc/ssl/private/mywebsite.key -out /etc/ssl/certs/mywebsite.crt
+
+RUN mkdir /var/www/mywebsitecontent
 #test
-COPY srcs/index.html var/www/html/mywebsitecontent
+COPY srcs/index.html var/www/mywebsitecontent
 
 #Installation de php et ses differents module
 RUN apt-get -y install php7.3 \   
@@ -36,7 +38,6 @@ RUN apt-get -y install php7.3 \
 
 
 RUN apt-get -y install mariadb-server
-RUN mkdir /var/www/mywebsitecontent
 
 #Installation de Wordpress
 RUN wget https://wordpress.org/latest.tar.gz \
