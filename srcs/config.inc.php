@@ -57,7 +57,7 @@ $cfg['Servers'][$i]['AllowNoPassword'] = true;
 // $cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
 // $cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
 // $cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
-/**
+/** 
  * End of servers configuration
  */
 /**

@@ -6,7 +6,7 @@
 #    By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/23 13:43:47 by lweglarz          #+#    #+#              #
-#    Updated: 2020/10/01 12:49:43 by lweglarz         ###   ########.fr        #
+#    Updated: 2020/10/01 13:03:54 by lweglarz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,9 +49,9 @@ COPY srcs/wp-config.php var/www/mywebsitecontent/wordpress
 #Installation de phpmyadmin
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz \
 &&  tar -xf phpMyAdmin-4.9.0.1-all-languages.tar.gz \
-&&  mv phpMyAdmin-4.9.0.1-all-languages /var/www/mywebsitecontent/phpMyAdmin \
+&&  mv phpMyAdmin-4.9.0.1-all-languages /var/www/mywebsitecontent/phpmyadmin \
 &&  rm phpMyAdmin-4.9.0.1-all-languages.tar.gz 
-COPY srcs/config.inc.php var/www/mywebsitecontent/phpMyAdmin
+COPY srcs/config.inc.php var/www/mywebsitecontent/phpmyadmin
 
 COPY srcs/mysqlsetup.sh ./
 RUN bash mysqlsetup.sh
