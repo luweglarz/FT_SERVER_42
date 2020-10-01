@@ -6,7 +6,7 @@
 #    By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/23 13:43:47 by lweglarz          #+#    #+#              #
-#    Updated: 2020/10/01 13:03:54 by lweglarz         ###   ########.fr        #
+#    Updated: 2020/10/01 13:23:35 by lweglarz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ RUN apt-get install -y openssl \
         -keyout /etc/ssl/private/mywebsite.key -out /etc/ssl/certs/mywebsite.crt
 
 RUN mkdir /var/www/mywebsitecontent
-#test
+
+#Index de base de mon serveur
 COPY srcs/index.html var/www/mywebsitecontent
 
 #Installation de php et ses differents module
