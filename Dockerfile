@@ -6,7 +6,7 @@
 #    By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/23 13:43:47 by lweglarz          #+#    #+#              #
-#    Updated: 2020/10/01 13:23:35 by lweglarz         ###   ########.fr        #
+#    Updated: 2020/10/01 14:11:24 by lweglarz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ RUN apt-get install -y openssl \
 RUN mkdir /var/www/mywebsitecontent
 
 #Index de base de mon serveur
-COPY srcs/index.html var/www/mywebsitecontent
+#COPY srcs/index.html var/www/mywebsitecontent
 
 #Installation de php et ses differents module
 RUN apt-get -y install php7.3 \   
